@@ -1,23 +1,13 @@
 import { Phone, PhoneArraySchema } from '@/types/phone';
+import env from '@/env';
 
 export class PhoneService {
   private apiUrl: string;
   private apiKey: string;
 
   constructor() {
-    const apiUrl = process.env.PHONE_CATALOGUE_API_URL;
-    const apiKey = process.env.PHONE_CATALOGUE_API_KEY;
-
-    if (!apiUrl) {
-      throw new Error('PHONE_CATALOGUE_API_URL environment variable is not set');
-    }
-
-    if (!apiKey) {
-      throw new Error('PHONE_CATALOGUE_API_KEY environment variable is not set');
-    }
-
-    this.apiUrl = apiUrl;
-    this.apiKey = apiKey;
+    this.apiUrl = env.PHONE_CATALOGUE_API_URL;
+    this.apiKey = env.PHONE_CATALOGUE_API_KEY;
   }
 
   async getAllPhones(limit?: number, offset?: number): Promise<Phone[]> {
