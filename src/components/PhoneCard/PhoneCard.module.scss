@@ -6,6 +6,12 @@
   overflow: hidden;
   justify-content: space-between;
   padding: 16px;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 
   &__info {
     display: grid;

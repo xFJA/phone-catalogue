@@ -1,5 +1,6 @@
 import '@/styles/globals.scss';
 import type { Metadata, Viewport } from 'next';
+import Header from '@/components/Header';
 
 export const metadata: Metadata = {
   title: 'Phone Catalogue',
@@ -14,7 +15,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

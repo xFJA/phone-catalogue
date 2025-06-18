@@ -8,8 +8,14 @@ interface PhoneCardProps {
   phone: Phone;
 }
 
+import Link from 'next/link';
+
 const PhoneCard = ({ phone }: PhoneCardProps) => (
-  <article className={styles['phone-card']}>
+  <Link
+    href={`/phones/${phone.id}`}
+    className={styles['phone-card']}
+    aria-label={`View details for ${phone.brand} ${phone.name}`}
+  >
     <Image
       src={phone.imageUrl}
       alt={`${phone.brand} ${phone.name} phone`}
@@ -23,7 +29,7 @@ const PhoneCard = ({ phone }: PhoneCardProps) => (
       <span className={styles['phone-card__name']}>{phone.name}</span>
       <span className={styles['phone-card__price']}>{formatPrice(phone.basePrice)}</span>
     </div>
-  </article>
+  </Link>
 );
 
 export default PhoneCard;

@@ -1,13 +1,5 @@
-import PhoneGrid from '@/components/PhoneGrid/PhoneGrid';
-import styles from './page.module.scss';
-import { phoneService } from '@/services/phoneService';
+import { redirect } from 'next/navigation';
 
-export default async function HomePage() {
-  const phones = await phoneService.getAllPhones();
-
-  return (
-    <main className={styles.main}>
-      <PhoneGrid phones={phones} />
-    </main>
-  );
+export default function Home() {
+  redirect('/phones');
 }
