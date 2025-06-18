@@ -1,5 +1,6 @@
 import { PhoneService } from './phoneService';
 import { Phone } from '@/types/phone';
+import { PhoneDetail } from '@/types/phoneDetail';
 
 global.fetch = jest.fn();
 
@@ -97,6 +98,100 @@ describe('PhoneService', () => {
       });
 
       await expect(phoneService.getAllPhones()).rejects.toThrow(
+        'API request failed with status: 500'
+      );
+    });
+  });
+
+  describe('getPhoneById', () => {
+    const mockPhoneDetail: PhoneDetail = {
+      id: '1',
+      brand: 'Apple',
+      name: 'iPhone 15 Pro',
+      description: 'Latest iPhone with advanced features.',
+      basePrice: 999,
+      rating: 4.9,
+      specs: {
+        screen: '6.1-inch OLED',
+        resolution: '2532x1170',
+        processor: 'A17 Bionic',
+        mainCamera: '48MP',
+        selfieCamera: '12MP',
+        battery: '3095mAh',
+        os: 'iOS 17',
+        screenRefreshRate: '120Hz',
+      },
+      colorOptions: [
+        {
+          name: 'Graphite',
+          hexCode: '#3a3a3c',
+          imageUrl: 'https://example.com/iphone15-graphite.jpg',
+        },
+      ],
+      storageOptions: [
+        { capacity: '128GB', price: 999 },
+        { capacity: '256GB', price: 1099 },
+      ],
+      similarProducts: [
+        {
+          id: '2',
+          brand: 'Apple',
+          name: 'iPhone 12',
+          basePrice: 909,
+          imageUrl:
+            'https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iphone12pro_10132020_big.jpg.large.jpg',
+        },
+      ],
+    };
+
+    it('should fetch phone detail by id successfully', async () => {
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => mockPhoneDetail,
+      });
+
+      const phone = await phoneService.getPhoneById('1');
+      expect(global.fetch).toHaveBeenCalledWith(
+        'https://test-api.example.com/products/1',
+        expect.objectContaining({
+          headers: expect.objectContaining({
+            'x-api-key': 'test-api-key',
+            'Content-Type': 'application/json',
+          }),
+        })
+      );
+      expect(phone).toEqual(mockPhoneDetail);
+    });
+
+    it('should return null for 404 response', async () => {
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: false,
+        status: 404,
+        json: async () => ({ error: 'Not found' }),
+      });
+      const phone = await phoneService.getPhoneById('does-not-exist');
+      expect(phone).toBeNull();
+    });
+
+    it('should throw if validation fails', async () => {
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => ({ invalid: 'data' }),
+      });
+      await expect(phoneService.getPhoneById('1')).rejects.toThrow(
+        'API response validation failed'
+      );
+    });
+
+    it('should throw if API fails', async () => {
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: false,
+        status: 500,
+        json: async () => ({ error: 'Server error' }),
+      });
+      await expect(phoneService.getPhoneById('1')).rejects.toThrow(
         'API request failed with status: 500'
       );
     });
