@@ -1,9 +1,13 @@
+import PhoneGrid from '@/components/PhoneGrid/PhoneGrid';
 import styles from './page.module.scss';
+import { phoneService } from '@/services/phoneService';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const phones = await phoneService.getAllPhones();
+
   return (
     <main className={styles.main}>
-      <h1>Phone Catalogue</h1>
+      <PhoneGrid phones={phones} />
     </main>
   );
 }

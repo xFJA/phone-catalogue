@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "eslint --fix . && stylelint --fix 'src/**/*.scss'",
     "lint:style": "stylelint 'src/**/*.scss'",
     "format": "prettier --write .",
     "prepare": "husky",
