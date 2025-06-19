@@ -1,0 +1,15 @@
+.storage-button-group {
+  display: flex;
+}
+
+.storage-button-grouped {
+  margin-left: -1px;
+
+  &:not(:first-child) {
+    border-left: none;
+  }
+
+  &.storage-button-selected:not(:first-child) {
+    border-left: 1px solid #000;
+  }
+}
