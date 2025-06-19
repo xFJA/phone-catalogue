@@ -3,12 +3,11 @@ import Image from 'next/image';
 import { Phone } from '@/types/phone';
 import styles from './PhoneCard.module.scss';
 import { formatPrice } from '@/utils/format';
+import Link from 'next/link';
 
 interface PhoneCardProps {
   phone: Phone;
 }
-
-import Link from 'next/link';
 
 const PhoneCard = ({ phone }: PhoneCardProps) => (
   <Link
