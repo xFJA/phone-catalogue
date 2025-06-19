@@ -18,7 +18,7 @@ const StorageButton = React.forwardRef<HTMLButtonElement, StorageButtonProps>(
       tabIndex={selected ? 0 : -1}
       className={clsx(
         styles['storage-button'],
-        { [styles['storage-button-selected']]: selected },
+        { [styles['storage-button--selected']]: selected },
         className
       )}
       onClick={onClick}
