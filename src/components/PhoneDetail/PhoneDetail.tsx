@@ -42,8 +42,13 @@ const PhoneDetail: React.FC<PhoneDetailProps> = ({
           <Image src={image} fill alt={`${name} in ${color?.name || colorOptions[0].name} color`} />
         </div>
         <div className={styles['phone-detail__form']}>
-          <h1 className={styles['phone-detail__name']}>{name}</h1>
-          <span className={styles['phone-detail__price']}>From {formatPrice(price)}</span>
+          <div className={styles['phone-detail__info']}>
+            <h1 className={styles['phone-detail__name']}>{name}</h1>
+            <span className={styles['phone-detail__price']}>
+              {storage || color ? '' : 'From '}
+              {formatPrice(price)}
+            </span>
+          </div>
 
           <StorageButtonGroup
             capacities={storageOptions.map((option) => option.capacity)}
@@ -57,7 +62,7 @@ const PhoneDetail: React.FC<PhoneDetailProps> = ({
             onSelect={handleSelectColor}
           />
 
-          <Button fullwidth disabled={!color || !storage} onClick={() => {}}>
+          <Button fullwidth disabled={!storage || !color} onClick={() => {}}>
             Add
           </Button>
         </div>

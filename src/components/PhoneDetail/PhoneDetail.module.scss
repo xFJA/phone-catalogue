@@ -9,6 +9,23 @@
     align-items: center;
   }
 
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__name {
+    font-weight: 300;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  &__price {
+    font-weight: 300;
+    font-size: 20px;
+  }
+
   &__image-container {
     position: relative;
     width: auto;
@@ -19,15 +36,8 @@
   &__form {
     width: 380px;
     height: 459px;
-  }
-
-  &__name {
-    font-weight: 300;
-    font-size: 24px;
-  }
-
-  &__price {
-    font-weight: 300;
-    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }

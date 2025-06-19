@@ -73,27 +73,33 @@ const StorageButtonGroup: React.FC<StorageButtonGroupProps> = ({
   };
 
   return (
-    <div
-      ref={groupRef}
-      className={styles['storage-button-group']}
-      role="radiogroup"
-      aria-label={ariaLabel}
-      aria-orientation="horizontal"
-      tabIndex={selectedIdx === -1 ? 0 : -1}
-      onKeyDown={handleKeyDown}
-    >
-      {capacities.map((capacity, i) => (
-        <StorageButton
-          key={capacity}
-          capacity={capacity}
-          selected={selected === capacity}
-          onClick={() => onSelect(capacity)}
-          className={styles['storage-button-grouped']}
-          ref={(el: HTMLButtonElement | null) => {
-            buttonRefs.current[i] = el;
-          }}
-        />
-      ))}
+    <div className={styles['storage-button-group']}>
+      <span id="storage-selection-label" className={styles['storage-button-group__label']}>
+        Storage ¿How much space do you need?
+      </span>
+      <div
+        ref={groupRef}
+        className={styles['storage-button-group__list']}
+        role="radiogroup"
+        aria-label={ariaLabel}
+        aria-labelledby="storage-selection-label"
+        aria-orientation="horizontal"
+        tabIndex={selectedIdx === -1 ? 0 : -1}
+        onKeyDown={handleKeyDown}
+      >
+        {capacities.map((capacity, i) => (
+          <StorageButton
+            key={capacity}
+            capacity={capacity}
+            selected={selected === capacity}
+            onClick={() => onSelect(capacity)}
+            className={styles['storage-button-grouped']}
+            ref={(el: HTMLButtonElement | null) => {
+              buttonRefs.current[i] = el;
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 };

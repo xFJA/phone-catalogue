@@ -38,13 +38,13 @@ const ColorButtonGroup: React.FC<ColorButtonGroupProps> = ({ colors, selected, o
   };
 
   return (
-    <div className={styles['color-button-group__container']}>
+    <div className={styles['color-button-group']}>
       <span id="color-selection-label" className={styles['color-button-group__label']}>
         COLOR. PICK YOUR FAVOURITE.
       </span>
       <div
         ref={groupRef}
-        className={styles['color-button-group']}
+        className={styles['color-button-group__list']}
         role="radiogroup"
         aria-labelledby="color-selection-label"
         aria-orientation="horizontal"
@@ -64,7 +64,7 @@ const ColorButtonGroup: React.FC<ColorButtonGroupProps> = ({ colors, selected, o
           />
         ))}
       </div>
-      {selected && <span className={styles['color-button__name']}>{selected}</span>}
+      <span className={styles['color-button-group__name']}>{selected}</span>
     </div>
   );
 };

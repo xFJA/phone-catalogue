@@ -1,23 +1,23 @@
 .color-button-group {
   display: flex;
-  gap: 16px;
-  margin-top: 8px;
-
-  &__container {
-    margin-top: 24px;
-    margin-bottom: 24px;
-  }
+  flex-direction: column;
 
   &__label {
     display: block;
     font-size: 14px;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 8px;
   }
 
   &__name {
     font-size: 12px;
     font-weight: 300;
+    min-height: 14px;
     color: #000;
   }
 }
