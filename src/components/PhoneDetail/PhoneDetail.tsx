@@ -7,6 +7,7 @@ import { formatPrice } from '@/utils/format';
 import StorageButtonGroup from '@/components/StorageButtonGroup';
 import ColorButtonGroup from '@/components/ColorButtonGroup';
 import { StorageOption, ColorOption } from '@/types/phoneDetail';
+import Button from '../Button';
 
 interface PhoneDetailProps {
   name: string;
@@ -55,6 +56,10 @@ const PhoneDetail: React.FC<PhoneDetailProps> = ({
             selected={color?.name}
             onSelect={handleSelectColor}
           />
+
+          <Button fullwidth disabled={!color || !storage} onClick={() => {}}>
+            Add
+          </Button>
         </div>
       </div>
     </main>
