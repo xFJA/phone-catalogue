@@ -14,6 +14,7 @@ export default async function PhoneDetailPage({ params }: PhoneDetailPageProps) 
   const { name, basePrice, colorOptions, storageOptions } = phone;
   return (
     <PhoneDetail
+      id={id}
       name={name}
       basePrice={basePrice}
       colorOptions={colorOptions}

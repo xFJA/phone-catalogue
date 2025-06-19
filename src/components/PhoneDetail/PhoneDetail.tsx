@@ -8,8 +8,10 @@ import StorageButtonGroup from '@/components/StorageButtonGroup';
 import ColorButtonGroup from '@/components/ColorButtonGroup';
 import { StorageOption, ColorOption } from '@/types/phoneDetail';
 import Button from '../Button';
+import { useCart } from '@/context/CartContext';
 
 interface PhoneDetailProps {
+  id: string;
   name: string;
   basePrice: number;
   colorOptions: ColorOption[];
@@ -17,6 +19,7 @@ interface PhoneDetailProps {
 }
 
 const PhoneDetail: React.FC<PhoneDetailProps> = ({
+  id,
   name,
   basePrice,
   colorOptions,
@@ -33,6 +36,19 @@ const PhoneDetail: React.FC<PhoneDetailProps> = ({
 
   const handleSelectColor = (colorName: ColorOption['name']) => {
     setColor(colorOptions.find((color) => color.name === colorName));
+  };
+
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    if (!storage || !color) return;
+
+    addItem({
+      id,
+      name,
+      storage,
+      color: { name: color.name, imageUrl: color.imageUrl },
+    });
   };
 
   return (
@@ -62,7 +78,7 @@ const PhoneDetail: React.FC<PhoneDetailProps> = ({
             onSelect={handleSelectColor}
           />
 
-          <Button fullwidth disabled={!storage || !color} onClick={() => {}}>
+          <Button fullwidth disabled={!storage || !color} onClick={() => handleAddToCart()}>
             Add
           </Button>
         </div>
