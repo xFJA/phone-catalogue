@@ -45,3 +45,4 @@ export const PhoneDetailSchema = z.object({
 
 export type PhoneDetail = z.infer<typeof PhoneDetailSchema>;
 export type StorageOption = z.infer<typeof PhoneStorageOptionSchema>;
+export type ColorOption = z.infer<typeof PhoneColorOptionSchema>;

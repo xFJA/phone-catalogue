@@ -1,0 +1,23 @@
+.color-button-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+
+  &__container {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  &__label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  &__name {
+    font-size: 12px;
+    font-weight: 300;
+    color: #000;
+  }
+}
