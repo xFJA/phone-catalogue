@@ -1,6 +1,6 @@
 import { phoneService } from '@/services/phoneService';
 import { notFound } from 'next/navigation';
-import PhoneDetail from '@/components/PhoneDetail/PhoneDetail';
+import PhoneDetail from '@/components/PhoneDetail';
 
 interface PhoneDetailPageProps {
   params: { id: string };

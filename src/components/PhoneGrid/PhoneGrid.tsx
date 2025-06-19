@@ -2,7 +2,7 @@
 
 import { Phone } from '@/types/phone';
 import styles from './PhoneGrid.module.scss';
-import PhoneCard from '@/components/PhoneCard/PhoneCard';
+import PhoneCard from '@/components/PhoneCard';
 
 interface PhoneGridProps {
   phones: Phone[];

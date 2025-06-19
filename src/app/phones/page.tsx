@@ -1,4 +1,4 @@
-import PhoneGrid from '@/components/PhoneGrid/PhoneGrid';
+import PhoneGrid from '@/components/PhoneGrid';
 import styles from '../page.module.scss';
 import { phoneService } from '@/services/phoneService';
 
