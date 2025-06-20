@@ -2,6 +2,7 @@ import '@/styles/globals.scss';
 import type { Metadata, Viewport } from 'next';
 import Header from '@/components/Header';
 import { CartProvider } from '@/context/CartContext';
+import styles from './Layout.module.scss';
 
 export const metadata: Metadata = {
   title: 'Phone Catalogue',
@@ -18,8 +19,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <CartProvider>
-          <Header />
-          {children}
+          <div className={styles.layout}>
+            <Header />
+            {children}
+          </div>
         </CartProvider>
       </body>
     </html>

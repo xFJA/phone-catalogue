@@ -1,0 +1,18 @@
+.phones-page {
+  width: 100%;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 343px);
+    gap: 1px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    width: 343px;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 0 0 1px;
+  }
+}
