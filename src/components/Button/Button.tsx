@@ -7,6 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   fullwidth?: boolean;
   width?: string | number;
+  variant?: 'outlined' | 'default';
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -14,6 +15,7 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   fullwidth = false,
   width,
+  variant = 'default',
   ...rest
 }) => {
   return (
@@ -21,7 +23,8 @@ const Button: React.FC<ButtonProps> = ({
       className={clsx(
         styles.button,
         { [styles['button--disabled']]: disabled },
-        { [styles['button--fullwidth']]: fullwidth }
+        { [styles['button--fullwidth']]: fullwidth },
+        { [styles['button--outlined']]: variant === 'outlined' }
       )}
       type={rest.type || 'button'}
       disabled={disabled}

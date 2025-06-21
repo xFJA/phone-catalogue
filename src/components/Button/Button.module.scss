@@ -3,13 +3,16 @@
   padding: 20px 32px;
   font-size: 12px;
   font-weight: 300;
-  line-height: 16px;
   border: none;
   background: #1b1a18;
   color: #fff;
-  text-transform: uppercase;
   cursor: pointer;
-  outline: none;
+}
+
+.button--outlined {
+  background: transparent;
+  color: #000;
+  border: 0.5px solid #000;
 }
 
 .button--fullwidth {

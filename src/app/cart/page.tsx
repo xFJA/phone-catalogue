@@ -43,7 +43,9 @@ export default function CartPage() {
       </ul>
       <div className={styles['cart-page__actions']}>
         <Link href="/phones">
-          <Button width={260}>CONTINUE SHOPPING</Button>
+          <Button width={260} variant="outlined">
+            CONTINUE SHOPPING
+          </Button>
         </Link>
         <div className={styles['cart-page__total']}>
           <span>Total: {formatPrice(totalItems)}</span>
