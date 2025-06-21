@@ -6,12 +6,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   disabled?: boolean;
   fullwidth?: boolean;
+  width?: string | number;
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
   disabled = false,
   fullwidth = false,
+  width,
   ...rest
 }) => {
   return (
@@ -25,6 +27,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       aria-disabled={disabled}
       tabIndex={disabled ? -1 : 0}
+      style={width ? { width } : undefined}
       {...rest}
     >
       {children}

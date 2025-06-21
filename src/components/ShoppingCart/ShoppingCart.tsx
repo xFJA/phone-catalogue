@@ -4,12 +4,13 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './ShoppingCart.module.scss'; // BEM naming
 import { useCart } from '@/context/CartContext';
+import Link from 'next/link';
 
 const ShoppingCart: React.FC = () => {
   const { totalItems } = useCart();
 
   return (
-    <div className={styles['shopping-cart']}>
+    <Link href="/cart" aria-label="Shopping cart" className={styles['shopping-cart']}>
       <Image
         src="/assets/svg/shopping-cart.svg"
         alt="Shopping cart"
@@ -18,7 +19,7 @@ const ShoppingCart: React.FC = () => {
         priority
       />
       <span className={styles['shopping-cart__count']}>{totalItems}</span>
-    </div>
+    </Link>
   );
 };
 
