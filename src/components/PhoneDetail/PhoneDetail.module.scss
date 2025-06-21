@@ -1,12 +1,12 @@
 .phone-detail {
-  width: 1200px;
-  margin: 0 auto;
-
   &__product-info-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    // TODO: Review this gap
+    gap: 2px;
   }
 
   &__info {
@@ -27,6 +27,11 @@
   }
 
   &__image-container {
+
+    @media (width <= 834px) {
+      width: 337px;
+    }
+
     position: relative;
     width: auto;
     aspect-ratio: 1/1;

@@ -14,7 +14,7 @@ export default async function PhoneDetailPage({ params }: PhoneDetailPageProps) 
 
   const { name, basePrice, colorOptions, storageOptions, brand, specs, description } = phone;
   return (
-    <div>
+    <div className={styles['phone-detail-page']}>
       <PhoneDetail
         id={id}
         name={name}

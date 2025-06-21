@@ -55,7 +55,12 @@ const PhoneDetail: React.FC<PhoneDetailProps> = ({
     <main className={styles['phone-detail']}>
       <div className={styles['phone-detail__product-info-container']}>
         <div className={styles['phone-detail__image-container']}>
-          <Image src={image} fill alt={`${name} in ${color?.name || colorOptions[0].name} color`} />
+          <Image
+            src={image}
+            fill
+            alt={`${name} in ${color?.name || colorOptions[0].name} color`}
+            sizes="(max-width: 1024px) 337px, 510px"
+          />
         </div>
         <div className={styles['phone-detail__form']}>
           <div className={styles['phone-detail__info']}>

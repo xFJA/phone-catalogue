@@ -1,4 +1,9 @@
 .layout {
   padding-left: 100px;
   padding-right: calc(100px - (100vw - 100%));
+
+  @media (width <= 1024px) {
+    padding-left: 40px;
+    padding-right: calc(40px - (100vw - 100%));
+  }
 }
