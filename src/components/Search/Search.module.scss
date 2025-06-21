@@ -1,27 +1,29 @@
+@use '../../styles/variables' as vars;
+
 .search {
   width: 100%;
 
   &__input-wrapper {
     position: relative;
-    border-bottom: 1px solid #ccc;
+    border-bottom: vars.$border-width-regular solid vars.$color-gray-300;
     transition: border-color 0.2s ease;
 
     &--focused {
-      border-color: #000;
+      border-color: vars.$color-primary;
     }
   }
 
   &__input {
     width: 100%;
-    padding: 0.5rem 0;
-    font-weight: 300;
+    padding: vars.$spacing-sm 0;
+    font-weight: vars.$font-weight-light;
     border: none;
-    font-size: 16px;
+    font-size: vars.$font-size-md;
     outline: none;
     background: transparent;
 
     &::placeholder {
-      color: #aaa;
+      color: vars.$color-gray-300;
     }
   }
 
@@ -34,14 +36,14 @@
     border: none;
     cursor: pointer;
     font-size: 1.5rem;
-    color: #999;
+    color: vars.$color-gray-400;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.25rem;
+    padding: vars.$spacing-xs;
 
     &:hover {
-      color: #000;
+      color: vars.$color-primary;
     }
   }
 }

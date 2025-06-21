@@ -1,14 +1,16 @@
+@use '../../styles/variables' as vars;
+
 .shopping-cart {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: vars.$spacing-xs + vars.$spacing-xxs;
   text-decoration: none;
 
   &__count {
-    color: black;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 16px;
+    color: vars.$color-text;
+    font-size: vars.$font-size-md;
+    font-weight: vars.$font-weight-light;
+    line-height: vars.$font-size-md;
   }
 }

@@ -1,18 +1,20 @@
+@use '../../styles/variables' as vars;
+
 .cart-page {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: vars.$spacing-xxl + vars.$spacing-sm;
 
   &__items-count {
-    font-weight: 300;
-    font-size: 24px;
+    font-weight: vars.$font-weight-light;
+    font-size: vars.$font-size-xl;
   }
 
   &__item {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 40px;
+    gap: vars.$spacing-xxl;
     width: 548px;
     height: 324px;
   }
@@ -21,7 +23,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 40px 0;
+    padding: vars.$spacing-xxl 0;
     height: 100%;
     box-sizing: border-box;
     align-items: start;
@@ -29,17 +31,17 @@
 
   &__item-info-container {
     display: flex;
-    font-size: 12px;
-    font-weight: 300;
+    font-size: vars.$font-size-sm;
+    font-weight: vars.$font-weight-light;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
+    gap: vars.$spacing-xs + vars.$spacing-md;
   }
 
   &__details-container {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: vars.$spacing-xs;
   }
 
   &__image-container {
@@ -53,8 +55,8 @@
     color: #df0000;
     background-color: transparent;
     border: none;
-    font-weight: 300;
-    font-size: 12px;
+    font-weight: vars.$font-weight-light;
+    font-size: vars.$font-size-sm;
     cursor: pointer;
 
     &:hover {
@@ -72,7 +74,7 @@
   &__total {
     display: flex;
     flex-direction: row;
-    gap: 80px;
+    gap: vars.$spacing-xxl * 2;
     align-items: center;
   }
 }

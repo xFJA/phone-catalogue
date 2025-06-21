@@ -1,10 +1,12 @@
+@use '../../styles/variables' as vars;
+
 .color-button {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: transparent;
   border: none;
-  padding: 8px;
+  padding: vars.$spacing-sm;
   cursor: pointer;
   outline: none;
   position: relative;
@@ -14,19 +16,19 @@
     display: block;
     width: 20px;
     height: 20px;
-    border: 1px solid #ccc;
-    margin-bottom: 4px;
+    border: vars.$border-width-regular solid vars.$color-gray-300;
+    margin-bottom: vars.$spacing-xs;
   }
 
   &--selected {
     .color-button__swatch {
-      box-shadow: 0 0 0 2px #000;
+      box-shadow: 0 0 0 vars.$spacing-xxs vars.$color-primary;
     }
   }
 
   &:focus-visible {
     .color-button__swatch {
-      box-shadow: 0 0 0 2px #06c;
+      box-shadow: 0 0 0 vars.$spacing-xxs vars.$color-focus;
     }
   }
 }

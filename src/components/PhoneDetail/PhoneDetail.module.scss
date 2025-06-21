@@ -1,3 +1,5 @@
+@use '../../styles/variables' as vars;
+
 .phone-detail {
   &__product-info-container {
     display: flex;
@@ -6,29 +8,28 @@
     align-items: center;
 
     // TODO: Review this gap
-    gap: 2px;
+    gap: vars.$spacing-xxs;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: vars.$spacing-md - vars.$spacing-xs;
   }
 
   &__name {
-    font-weight: 300;
-    font-size: 24px;
+    font-weight: vars.$font-weight-light;
+    font-size: vars.$font-size-xl;
     margin: 0;
   }
 
   &__price {
-    font-weight: 300;
-    font-size: 20px;
+    font-weight: vars.$font-weight-light;
+    font-size: vars.$font-size-lg;
   }
 
   &__image-container {
-
-    @media (width <= 834px) {
+    @media (width <= #{vars.$breakpoint-tablet}) {
       width: 337px;
     }
 

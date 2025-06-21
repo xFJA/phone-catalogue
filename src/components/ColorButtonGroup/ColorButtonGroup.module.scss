@@ -1,3 +1,5 @@
+@use '../../styles/variables' as vars;
+
 .color-button-group {
   display: flex;
   flex-direction: column;
@@ -5,19 +7,19 @@
   &__label {
     display: block;
     font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 24px;
+    font-weight: vars.$font-weight-regular;
+    margin-bottom: vars.$spacing-lg;
   }
 
   &__list {
     display: flex;
-    gap: 8px;
+    gap: vars.$spacing-sm;
   }
 
   &__name {
-    font-size: 12px;
-    font-weight: 300;
+    font-size: vars.$font-size-sm;
+    font-weight: vars.$font-weight-light;
     min-height: 14px;
-    color: #000;
+    color: vars.$color-text;
   }
 }

@@ -1,18 +1,20 @@
+@use '../../styles/variables' as vars;
+
 .button {
   display: inline-block;
-  padding: 20px 32px;
-  font-size: 12px;
-  font-weight: 300;
+  padding: vars.$spacing-lg vars.$spacing-xl;
+  font-size: vars.$font-size-sm;
+  font-weight: vars.$font-weight-light;
   border: none;
-  background: #1b1a18;
-  color: #fff;
+  background: vars.$color-gray-700;
+  color: vars.$color-white;
   cursor: pointer;
 }
 
 .button--outlined {
   background: transparent;
-  color: #000;
-  border: 0.5px solid #000;
+  color: vars.$color-black;
+  border: vars.$border-width-thin solid vars.$color-border;
 }
 
 .button--fullwidth {

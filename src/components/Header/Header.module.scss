@@ -1,5 +1,7 @@
+@use '../../styles/variables' as vars;
+
 .header {
-  background: #fff;
+  background: vars.$color-background;
   height: 80px;
   display: flex;
   align-items: center;

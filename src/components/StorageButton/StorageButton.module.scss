@@ -1,10 +1,11 @@
+@use '../../styles/variables' as vars;
+
 .storage-button {
-  border: 1px solid #ccc;
+  border: vars.$border-width-regular solid vars.$color-gray-300;
   background-color: transparent;
-  color: #000;
-  font-weight: 300;
-  padding: 24px;
-  font-size: 1rem;
+  color: vars.$color-text;
+  font-weight: vars.$font-weight-light;
+  padding: vars.$spacing-lg;
   font-size: 14px;
   cursor: pointer;
   outline: none;
@@ -12,7 +13,7 @@
   margin: 0;
 
   &--selected {
-    border-color: #000;
+    border-color: vars.$color-primary;
     z-index: 1;
   }
 }

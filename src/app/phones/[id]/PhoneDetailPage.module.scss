@@ -1,3 +1,5 @@
+@use '../../../styles/variables' as vars;
+
 .phone-detail-page {
   padding: 0 260px;
   margin: 0 auto;
@@ -9,18 +11,18 @@
 
 // TODO: refactor styles
 .specifications {
-  font-size: 12px;
-  font-weight: 300;
-  margin-top: 60px;
-  padding: 0 20px;
+  font-size: vars.$font-size-sm;
+  font-weight: vars.$font-weight-light;
+  margin-top: vars.$spacing-xxxl;
+  padding: 0 vars.$spacing-xs + vars.$spacing-md;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 
   &__title {
-    font-size: 20px;
-    font-weight: 300;
-    margin-bottom: 40px;
+    font-size: vars.$font-size-lg;
+    font-weight: vars.$font-weight-light;
+    margin-bottom: vars.$spacing-xxl;
   }
 
   &__table {
@@ -28,7 +30,7 @@
     border-collapse: collapse;
 
     tr {
-      border-bottom: 1px solid #000;
+      border-bottom: vars.$border-width-thin solid vars.$color-border;
 
       &:last-child {
         border-bottom: none;
@@ -37,21 +39,21 @@
 
     th,
     td {
-      padding: 16px 0;
+      padding: vars.$spacing-md 0;
       text-align: left;
     }
 
     th {
       width: 348px;
-      font-weight: 300;
-      color: #000;
-      font-size: 12px;
+      font-weight: vars.$font-weight-light;
+      color: vars.$color-text;
+      font-size: vars.$font-size-sm;
     }
 
     td {
-      font-weight: 300;
-      color: #000;
-      font-size: 12px;
+      font-weight: vars.$font-weight-light;
+      color: vars.$color-text;
+      font-size: vars.$font-size-sm;
     }
   }
 }

@@ -1,9 +1,9 @@
-@use '../../styles/variables';
+@use '../../styles/variables' as vars;
 
 .phone-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 343px);
-  gap: 1px;
+  gap: vars.$border-width-regular;
   list-style: none;
   justify-content: center;
   padding: 0;
@@ -12,6 +12,6 @@
   &__item {
     width: 343px;
     aspect-ratio: 1 / 1;
-    box-shadow: 0 0 0 1px;
+    box-shadow: 0 0 0 vars.$border-width-regular;
   }
 }

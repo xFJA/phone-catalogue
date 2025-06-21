@@ -1,15 +1,17 @@
+@use '../../styles/variables' as vars;
+
 .scroll-indicator {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0;
+  padding: vars.$spacing-sm + vars.$spacing-xxs 0;
 }
 
 .scroll-track {
   position: relative;
   width: 100px;
-  height: 1px;
-  background-color: #e5e5e5;
+  height: vars.$border-width-regular;
+  background-color: vars.$color-gray-200;
 }
 
 .scroll-thumb {
@@ -17,7 +19,7 @@
   left: 0;
   top: -1px;
   width: 30px;
-  height: 3px;
-  background-color: #000;
+  height: vars.$border-width-thick;
+  background-color: vars.$color-primary;
   transition: transform 0.1s ease-out;
 }

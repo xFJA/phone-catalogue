@@ -1,2 +1,54 @@
+// Base colors
+$color-black: #000;
+$color-white: #fff;
+
+// Neutral palette
+$color-gray-100: #f3f2f2;
+$color-gray-200: #e5e5e5;
+$color-gray-300: #c2bfbc;
+$color-gray-400: #79736d;
+$color-gray-500: #363331;
+$color-gray-600: #282624;
+$color-gray-700: #1b1a18;
+
+// Semantic colors
+$color-primary: $color-black;
+$color-secondary: $color-white;
+$color-background: $color-white;
+$color-text: $color-black;
+$color-text-muted: $color-gray-400;
+$color-border: $color-black;
+$color-focus: #06c;
+
 // Typography
 $font-family-base: helvetica, arial, sans-serif;
+
+// Font sizes
+$font-size-xs: 10px;
+$font-size-sm: 12px;
+$font-size-md: 16px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing-xxs: 2px;
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 40px;
+$spacing-xxxl: 60px;
+
+// Borders
+$border-width-thin: 0.5px;
+$border-width-regular: 1px;
+$border-width-thick: 3px;
+
+// Breakpoints
+$breakpoint-tablet: 834px;

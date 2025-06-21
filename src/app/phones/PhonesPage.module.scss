@@ -1,8 +1,10 @@
+@use '../../styles/variables' as vars;
+
 .phones-page {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  gap: vars.$spacing-xxl + vars.$spacing-sm;
 
   &__list {
     display: grid;

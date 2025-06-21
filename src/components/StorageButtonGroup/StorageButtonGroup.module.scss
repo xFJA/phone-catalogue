@@ -1,3 +1,5 @@
+@use '../../styles/variables' as vars;
+
 .storage-button-group {
   display: flex;
   flex-direction: column;
@@ -5,8 +7,8 @@
   &__label {
     display: block;
     font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 24px;
+    font-weight: vars.$font-weight-regular;
+    margin-bottom: vars.$spacing-xl - vars.$spacing-sm;
     text-transform: uppercase;
   }
 
@@ -16,5 +18,5 @@
 }
 
 .storage-button-grouped {
-  margin-left: -1px;
+  margin-left: -#{vars.$border-width-regular};
 }
