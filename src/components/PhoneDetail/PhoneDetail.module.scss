@@ -29,14 +29,14 @@
   }
 
   &__image-container {
-    @media (width <= #{vars.$breakpoint-tablet}) {
-      width: 337px;
-    }
-
     position: relative;
     width: auto;
     aspect-ratio: 1/1;
     height: 630px;
+
+    @media (width <= #{vars.$breakpoint-tablet}) {
+      width: 337px;
+    }
   }
 
   &__form {

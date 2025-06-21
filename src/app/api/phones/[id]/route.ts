@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import { phoneService } from '@/services/phoneService';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+
   try {
-    const { id } = params;
     const phone = await phoneService.getPhoneById(id);
 
     if (!phone) {

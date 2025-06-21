@@ -5,11 +5,12 @@ import styles from './PhoneDetailPage.module.scss';
 import SimilarItemsSection from '@/components/SimilarItemsSection/SimilarItemsSection';
 
 interface PhoneDetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 export default async function PhoneDetailPage({ params }: PhoneDetailPageProps) {
-  const { id } = params;
+  const { id } = await params;
   const phone = await phoneService.getPhoneById(id);
   if (!phone) return notFound();
 
