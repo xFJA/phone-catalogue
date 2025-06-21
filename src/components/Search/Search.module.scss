@@ -1,7 +1,5 @@
 .search {
   width: 100%;
-  max-width: 370px;
-  margin-bottom: 1.5rem;
 
   &__input-wrapper {
     position: relative;
@@ -45,13 +43,5 @@
     &:hover {
       color: #000;
     }
-  }
-
-  &__results-count {
-    margin-top: 12px;
-    font-size: 12px;
-    font-weight: 300;
-    text-transform: uppercase;
-    color: #000;
   }
 }

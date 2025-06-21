@@ -6,9 +6,10 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const limit = searchParams.get('limit');
     const offset = searchParams.get('offset');
+    const search = searchParams.get('search');
     const limitNum = limit ? parseInt(limit, 10) : 20;
     const offsetNum = offset ? parseInt(offset, 10) : 0;
-    const phones = await phoneService.getAllPhones(limitNum, offsetNum);
+    const phones = await phoneService.getAllPhones(limitNum, offsetNum, search || undefined);
     return NextResponse.json(phones);
   } catch (error) {
     console.error('Error in GET /api/phones:', error);

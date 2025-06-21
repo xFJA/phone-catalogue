@@ -11,11 +11,12 @@ export class PhoneService {
     this.apiKey = env.PHONE_CATALOGUE_API_KEY;
   }
 
-  async getAllPhones(limit?: number, offset?: number): Promise<Phone[]> {
+  async getAllPhones(limit?: number, offset?: number, search?: string): Promise<Phone[]> {
     try {
       const url = new URL(`${this.apiUrl}/products`);
       if (typeof limit === 'number') url.searchParams.set('limit', String(limit));
       if (typeof offset === 'number') url.searchParams.set('offset', String(offset));
+      if (typeof search === 'string') url.searchParams.set('search', String(search));
 
       const response = await fetch(url.toString(), {
         headers: {

@@ -24,6 +24,12 @@ export const Search = ({ placeholder = 'Search for a smartphone...', onSearch }:
   const debouncedSearchTerm = useDebounce(inputValue, 300);
 
   useEffect(() => {
+    const currentSearch = searchParams.get('search') ?? '';
+
+    if (debouncedSearchTerm === currentSearch) {
+      return;
+    }
+
     const params = new URLSearchParams(searchParams.toString());
     if (debouncedSearchTerm) {
       params.set('search', debouncedSearchTerm);
@@ -31,7 +37,11 @@ export const Search = ({ placeholder = 'Search for a smartphone...', onSearch }:
       params.delete('search');
     }
 
-    router.replace(`/phones?${params.toString()}`, { scroll: false });
+    const nextUrl = `${window.location.pathname}${params.toString() ? `?${params}` : ''}`;
+
+    if (nextUrl !== window.location.pathname + window.location.search) {
+      router.replace(nextUrl, { scroll: false });
+    }
 
     if (onSearch) {
       onSearch(debouncedSearchTerm);
