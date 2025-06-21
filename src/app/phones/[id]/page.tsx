@@ -2,6 +2,7 @@ import { phoneService } from '@/services/phoneService';
 import { notFound } from 'next/navigation';
 import PhoneDetail from '@/components/PhoneDetail';
 import styles from './PhoneDetailPage.module.scss';
+import SimilarItemsSection from '@/components/SimilarItemsSection/SimilarItemsSection';
 
 interface PhoneDetailPageProps {
   params: { id: string };
@@ -12,7 +13,16 @@ export default async function PhoneDetailPage({ params }: PhoneDetailPageProps) 
   const phone = await phoneService.getPhoneById(id);
   if (!phone) return notFound();
 
-  const { name, basePrice, colorOptions, storageOptions, brand, specs, description } = phone;
+  const {
+    name,
+    basePrice,
+    colorOptions,
+    storageOptions,
+    brand,
+    specs,
+    description,
+    similarProducts,
+  } = phone;
   return (
     <div className={styles['phone-detail-page']}>
       <PhoneDetail
@@ -73,6 +83,8 @@ export default async function PhoneDetailPage({ params }: PhoneDetailPageProps) 
           </tbody>
         </table>
       </div>
+
+      <SimilarItemsSection similarProducts={similarProducts} />
     </div>
   );
 }

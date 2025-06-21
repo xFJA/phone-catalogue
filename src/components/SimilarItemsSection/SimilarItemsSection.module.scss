@@ -1,0 +1,79 @@
+.similar-items {
+  margin-top: 60px;
+  padding: 0 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+  font-weight: 300;
+
+  &__title {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__scroll-container {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    outline: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 3px solid #005fcc;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px #e5e5e5;
+      border-radius: 6px;
+    }
+  }
+
+  &__card {
+    flex: 0 0 auto;
+    width: 312px;
+    list-style-type: none;
+    border: 1px solid #000;
+    border-left: none;
+
+    &:first-child {
+      border-left: 1px solid #000;
+    }
+  }
+
+  &__scroll-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  &__scroll-track {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background-color: #e5e5e5;
+  }
+
+  &__scroll-thumb {
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 30px;
+    height: 3px;
+    background-color: #111;
+    border-radius: 2px;
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+  }
+}
