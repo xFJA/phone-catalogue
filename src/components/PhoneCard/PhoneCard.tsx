@@ -15,6 +15,7 @@ const PhoneCard = ({ phone }: PhoneCardProps) => (
     className={styles['phone-card']}
     aria-label={`View details for ${phone.brand} ${phone.name}`}
   >
+    <div className={styles['phone-card__overlay']} />
     <Image
       src={phone.imageUrl}
       alt={`${phone.brand} ${phone.name} phone`}

@@ -1,6 +1,9 @@
+@use '../styles/variables' as vars;
+
 .layout {
   padding-left: 100px;
   padding-right: calc(100px - (100vw - 100%));
+  padding-bottom: vars.$spacing-xxl + vars.$spacing-md;
 
   @media (width <= 1024px) {
     padding-left: 40px;

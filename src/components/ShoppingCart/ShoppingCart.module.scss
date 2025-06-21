@@ -3,7 +3,7 @@
 .shopping-cart {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: vars.$spacing-xs + vars.$spacing-xxs;
   text-decoration: none;
 
