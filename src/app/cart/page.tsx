@@ -11,36 +11,39 @@ export default function CartPage() {
   const { items, totalItems, removeItem } = useCart();
   return (
     <main className={styles['cart-page']}>
-      <span className={styles['cart-page__items-count']}>CART ({totalItems})</span>
-      <ul>
-        {items.map((item) => (
-          <li key={item.id} className={styles['cart-page__item']}>
-            <div className={styles['cart-page__image-container']}>
-              <Image
-                src={item.color.imageUrl}
-                alt={item.name}
-                fill
-                style={{ objectFit: 'contain' }}
-              />
-            </div>
-            <div className={styles['cart-page__right-container']}>
-              <div className={styles['cart-page__item-info-container']}>
-                <div className={styles['cart-page__details-container']}>
-                  <span>{item.name}</span>
-                  <span>{`${item.storage.capacity} | ${item.color.name}`}</span>
-                </div>
-                <span>{formatPrice(item.storage.price)}</span>
+      <div className={styles['cart-page__items-container']}>
+        <span className={styles['cart-page__items-count']}>CART ({totalItems})</span>
+        <ul className={styles['cart-page__items-list']}>
+          {items.map((item) => (
+            <li key={item.id} className={styles['cart-page__item']}>
+              <div className={styles['cart-page__image-container']}>
+                <Image
+                  src={item.color.imageUrl}
+                  alt={item.name}
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
               </div>
-              <button
-                className={styles['cart-page__remove-button']}
-                onClick={() => removeItem(item.id)}
-              >
-                Remove
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+              <div className={styles['cart-page__right-container']}>
+                <div className={styles['cart-page__item-info-container']}>
+                  <div className={styles['cart-page__details-container']}>
+                    <span>{item.name}</span>
+                    <span>{`${item.storage.capacity} | ${item.color.name}`}</span>
+                  </div>
+                  <span>{formatPrice(item.storage.price)}</span>
+                </div>
+                <button
+                  className={styles['cart-page__remove-button']}
+                  onClick={() => removeItem(item.id)}
+                >
+                  Remove
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <div className={styles['cart-page__actions']}>
         <Link href="/phones">
           <Button width={260} variant="outlined">

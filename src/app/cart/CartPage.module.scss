@@ -3,7 +3,20 @@
 .cart-page {
   display: flex;
   flex-direction: column;
-  gap: vars.$spacing-xxl + vars.$spacing-sm;
+  justify-content: space-between;
+
+  // TODO: Review this height to make it dinamic
+  height: calc(100vh - 136px);
+
+  &__items-container {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-xxl + vars.$spacing-sm;
+  }
+
+  &__items-list {
+    overflow-y: scroll;
+  }
 
   &__items-count {
     font-weight: vars.$font-weight-light;
