@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import { CartProvider } from '@/context/CartContext';
 import { ReactQueryProvider } from '@/providers/ReactQueryProvider';
 import styles from './Layout.module.scss';
+import { Suspense } from 'react';
+import LoadingLine from '@/components/LoadingLine';
 
 export const metadata: Metadata = {
   title: 'Phone Catalogue',
@@ -23,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CartProvider>
             <div className={styles.layout}>
               <Header />
-              {children}
+              <Suspense fallback={<LoadingLine />}>{children}</Suspense>
             </div>
           </CartProvider>
         </ReactQueryProvider>

@@ -1,0 +1,28 @@
+@use '../../styles/variables' as vars;
+
+.loading-line {
+  position: relative;
+  width: 100vw;
+  height: 1px;
+  background: transparent;
+
+  &__line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: vars.$color-black;
+    animation: loading-line-loading-animation 1.5s linear infinite;
+  }
+}
+
+@keyframes loading-line-loading-animation {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
