@@ -42,7 +42,8 @@ jest.mock('next/server', () => ({
 describe('GET /api/phones', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    phoneService.getAllPhones = jest.fn().mockImplementation((limit, offset) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    phoneService.getAllPhones = jest.fn().mockImplementation((limit, offset, _search) => {
       if (limit === 1 && offset === 1) {
         return Promise.resolve([mockPhones[1]]);
       }
@@ -62,7 +63,7 @@ describe('GET /api/phones', () => {
     expect(data[0].id).toBe('1');
     expect(data[1].id).toBe('2');
 
-    expect(phoneService.getAllPhones).toHaveBeenCalledWith(20, 0);
+    expect(phoneService.getAllPhones).toHaveBeenCalledWith(20, 0, undefined);
   });
 
   it('should handle pagination parameters', async () => {
@@ -76,7 +77,7 @@ describe('GET /api/phones', () => {
 
     expect(data).toHaveLength(1);
     expect(data[0].id).toBe('2');
-    expect(phoneService.getAllPhones).toHaveBeenCalledWith(1, 1);
+    expect(phoneService.getAllPhones).toHaveBeenCalledWith(1, 1, undefined);
   });
 
   it('should handle invalid pagination parameters', async () => {
@@ -85,23 +86,31 @@ describe('GET /api/phones', () => {
     const response = await GET(request);
 
     expect(response.status).toBe(200);
-    expect(phoneService.getAllPhones).toHaveBeenCalledWith(NaN, NaN);
+    expect(phoneService.getAllPhones).toHaveBeenCalledWith(NaN, NaN, undefined);
   });
 
   it('should handle service errors', async () => {
-    phoneService.getAllPhones = jest.fn().mockImplementationOnce(() => {
-      throw new Error('Service error');
-    });
+    // Temporarily disable console.error for this test
+    const originalConsoleError = console.error;
+    console.error = jest.fn();
 
-    const request = new Request('http://localhost:3000/api/phones');
+    try {
+      phoneService.getAllPhones = jest.fn().mockImplementationOnce(() => {
+        throw new Error('Service error');
+      });
 
-    const response = await GET(request);
+      const request = new Request('http://localhost:3000/api/phones');
 
-    expect(response.status).toBe(500);
+      const response = await GET(request);
 
-    const data = await response.json();
+      expect(response.status).toBe(500);
 
-    expect(data).toHaveProperty('error');
-    expect(data.error).toBe('Service error');
+      const data = await response.json();
+      expect(data).toHaveProperty('error');
+      expect(data.error).toBe('Service error');
+    } finally {
+      // Restore console.error
+      console.error = originalConsoleError;
+    }
   });
 });

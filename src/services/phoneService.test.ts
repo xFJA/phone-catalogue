@@ -82,24 +82,39 @@ describe('PhoneService', () => {
     });
 
     it('should throw an error when API response validation fails', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        json: async () => [{ invalid: 'data' }],
-      });
+      const originalConsoleError = console.error;
+      console.error = jest.fn();
 
-      await expect(phoneService.getAllPhones()).rejects.toThrow('API response validation failed');
+      try {
+        mockFetch.mockResolvedValueOnce({
+          ok: true,
+          json: async () => [{ invalid: 'data' }],
+        });
+
+        await expect(phoneService.getAllPhones()).rejects.toThrow('API response validation failed');
+      } finally {
+        console.error = originalConsoleError;
+      }
     });
 
     it('should throw an error when API request fails', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 500,
-        json: async () => ({ error: 'Server error' }),
-      });
+      const originalConsoleError = console.error;
+      console.error = jest.fn();
 
-      await expect(phoneService.getAllPhones()).rejects.toThrow(
-        'API request failed with status: 500'
-      );
+      try {
+        mockFetch.mockResolvedValueOnce({
+          ok: false,
+          status: 500,
+          json: async () => ({ error: 'Server error' }),
+        });
+
+        await expect(phoneService.getAllPhones()).rejects.toThrow(
+          'API request failed with status: 500'
+        );
+      } finally {
+        // Restore console.error
+        console.error = originalConsoleError;
+      }
     });
   });
 
@@ -136,15 +151,21 @@ describe('PhoneService', () => {
         {
           id: '2',
           brand: 'Apple',
-          name: 'iPhone 12',
-          basePrice: 909,
-          imageUrl:
-            'https://www.apple.com/newsroom/images/product/iphone/standard/Apple_announce-iphone12pro_10132020_big.jpg.large.jpg',
+          name: 'iPhone 14',
+          basePrice: 799,
+          imageUrl: 'https://example.com/iphone14.jpg',
+        },
+        {
+          id: '3',
+          brand: 'Samsung',
+          name: 'Galaxy S23',
+          basePrice: 899,
+          imageUrl: 'https://example.com/galaxys23.jpg',
         },
       ],
     };
 
-    it('should fetch phone detail by id successfully', async () => {
+    it('should return phone details for a valid ID', async () => {
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         status: 200,
@@ -175,25 +196,49 @@ describe('PhoneService', () => {
     });
 
     it('should throw if validation fails', async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ invalid: 'data' }),
-      });
-      await expect(phoneService.getPhoneById('1')).rejects.toThrow(
-        'API response validation failed'
-      );
+      const originalConsoleError = console.error;
+      console.error = jest.fn();
+
+      try {
+        (global.fetch as jest.Mock).mockResolvedValueOnce({
+          ok: true,
+          status: 200,
+          json: async () => ({
+            // Partial data that will fail validation
+            id: '1',
+            brand: 'Apple',
+            name: 'iPhone 15 Pro',
+            description: 'The latest iPhone',
+            basePrice: 999,
+            rating: 4.8,
+          }),
+        });
+
+        await expect(phoneService.getPhoneById('1')).rejects.toThrow(
+          'API response validation failed'
+        );
+      } finally {
+        console.error = originalConsoleError;
+      }
     });
 
     it('should throw if API fails', async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
-        ok: false,
-        status: 500,
-        json: async () => ({ error: 'Server error' }),
-      });
-      await expect(phoneService.getPhoneById('1')).rejects.toThrow(
-        'API request failed with status: 500'
-      );
+      const originalConsoleError = console.error;
+      console.error = jest.fn();
+
+      try {
+        (global.fetch as jest.Mock).mockResolvedValueOnce({
+          ok: false,
+          status: 500,
+          json: async () => ({ error: 'Server error' }),
+        });
+
+        await expect(phoneService.getPhoneById('1')).rejects.toThrow(
+          'API request failed with status: 500'
+        );
+      } finally {
+        console.error = originalConsoleError;
+      }
     });
   });
 });
