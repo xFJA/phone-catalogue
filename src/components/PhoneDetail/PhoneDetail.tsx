@@ -59,7 +59,7 @@ const PhoneDetail: React.FC<PhoneDetailProps> = ({
             src={image}
             fill
             alt={`${name} in ${color?.name || colorOptions[0].name} color`}
-            sizes="(max-width: 1024px) 337px, 510px"
+            sizes="(max-width: 768px) 260px, (max-width: 1024px) 337px, 510px"
           />
         </div>
         <div className={styles['phone-detail__form']}>

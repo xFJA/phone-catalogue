@@ -9,4 +9,9 @@
     padding-left: 40px;
     padding-right: calc(40px - (100vw - 100%));
   }
+
+  @media (width <= 768px) {
+    padding-left: 16px;
+    padding-right: calc(16px - (100vw - 100%));
+  }
 }

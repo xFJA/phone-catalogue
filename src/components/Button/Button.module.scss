@@ -2,13 +2,29 @@
 
 .button {
   display: inline-block;
-  padding: vars.$spacing-lg vars.$spacing-xl;
+  padding-left: vars.$spacing-xl;
+  padding-right: vars.$spacing-xl;
   font-size: vars.$font-size-sm;
   font-weight: vars.$font-weight-light;
   border: none;
   background: vars.$color-gray-700;
   color: vars.$color-white;
   cursor: pointer;
+}
+
+.button--small {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.button--medium {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.button--large {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .button--outlined {

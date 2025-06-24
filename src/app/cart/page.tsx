@@ -69,6 +69,8 @@ export default function CartPage() {
           </Button>
         </Link>
 
+        {/* TODO: Get breakpoint for using button small variant*/}
+        {/* TODO: Fix responsiveness for mobile and tablet*/}
         <div className={styles['cart-page__checkout']}>
           <div className={styles['cart-page__total']}>
             <span>TOTAL</span>

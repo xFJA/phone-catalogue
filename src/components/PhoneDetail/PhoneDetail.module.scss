@@ -3,12 +3,14 @@
 .phone-detail {
   &__product-info-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
-    // TODO: Review this gap
     gap: vars.$spacing-xxs;
+
+    @media (min-width: #{vars.$breakpoint-tablet}) {
+      flex-direction: row;
+    }
   }
 
   &__info {
@@ -35,7 +37,14 @@
     height: 630px;
 
     @media (width <= #{vars.$breakpoint-tablet}) {
+      height: 416px;
       width: 337px;
+    }
+
+    @media (width <= #{vars.$breakpoint-md}) {
+      height: 273px;
+      width: 260px;
+      align-self: flex-start;
     }
   }
 

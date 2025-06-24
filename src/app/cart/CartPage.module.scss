@@ -30,6 +30,16 @@
     gap: vars.$spacing-xxl;
     width: 548px;
     height: 324px;
+
+    @media (width <= #{vars.$breakpoint-tablet}) {
+      width: 100%;
+      height: 416px;
+    }
+
+    @media (width <= #{vars.$breakpoint-md}) {
+      width: 100%;
+      height: 198px;
+    }
   }
 
   &__right-container {

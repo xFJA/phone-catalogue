@@ -8,6 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   fullwidth?: boolean;
   width?: string | number;
   variant?: 'outlined' | 'default';
+  size?: 'small' | 'medium' | 'large';
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,6 +17,7 @@ const Button: React.FC<ButtonProps> = ({
   fullwidth = false,
   width,
   variant = 'default',
+  size = 'large',
   ...rest
 }) => {
   return (
@@ -24,7 +26,10 @@ const Button: React.FC<ButtonProps> = ({
         styles.button,
         { [styles['button--disabled']]: disabled },
         { [styles['button--fullwidth']]: fullwidth },
-        { [styles['button--outlined']]: variant === 'outlined' }
+        { [styles['button--outlined']]: variant === 'outlined' },
+        { [styles['button--small']]: size === 'small' },
+        { [styles['button--medium']]: size === 'medium' },
+        { [styles['button--large']]: size === 'large' }
       )}
       type={rest.type || 'button'}
       disabled={disabled}
