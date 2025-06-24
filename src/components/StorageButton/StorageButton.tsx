@@ -23,6 +23,7 @@ const StorageButton = React.forwardRef<HTMLButtonElement, StorageButtonProps>(
       )}
       onClick={onClick}
       ref={ref}
+      data-testid="storage-option"
     >
       {capacity}
     </button>

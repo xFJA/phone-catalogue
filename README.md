@@ -102,11 +102,31 @@ pnpm format     # Format code with Prettier
 
 ## Testing
 
+### Unit & Integration Tests
+
 Tests live next to the code they cover (`*.test.tsx`).
 
 - **Jest** + **@testing-library/react** for UI.
 - **MSW** (Mock Service Worker) & fetch mocks to isolate network calls.
 - Generate coverage via `pnpm test --coverage`.
+
+### E2E Tests
+
+End-to-end tests use Cypress to validate complete user flows:
+
+```bash
+# Open Cypress interactive test runner
+pnpm cypress
+
+# Run E2E tests headlessly
+pnpm cypress:headless
+
+# Start dev server and run E2E tests
+pnpm test:e2e
+
+# Start dev server and run E2E tests headlessly
+pnpm test:e2e:headless
+```
 
 ## Deployment
 

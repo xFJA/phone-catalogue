@@ -25,6 +25,7 @@ const ColorButton = React.forwardRef<HTMLButtonElement, ColorButtonProps>(
       )}
       onClick={onClick}
       ref={ref}
+      data-testid="color-option"
     >
       <span className={styles['color-button__swatch']} style={{ backgroundColor: hexCode }} />
     </button>

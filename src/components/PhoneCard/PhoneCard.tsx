@@ -14,6 +14,7 @@ const PhoneCard = ({ phone }: PhoneCardProps) => (
     href={`/phones/${phone.id}`}
     className={styles['phone-card']}
     aria-label={`View details for ${phone.brand} ${phone.name}`}
+    data-testid="phone-card"
   >
     <div className={styles['phone-card__overlay']} />
     <Image
@@ -26,8 +27,12 @@ const PhoneCard = ({ phone }: PhoneCardProps) => (
     />
     <div className={styles['phone-card__info']}>
       <span className={styles['phone-card__brand']}>{phone.brand}</span>
-      <span className={styles['phone-card__name']}>{phone.name}</span>
-      <span className={styles['phone-card__price']}>{formatPrice(phone.basePrice)}</span>
+      <span className={styles['phone-card__name']} data-testid="phone-name">
+        {phone.name}
+      </span>
+      <span className={styles['phone-card__price']} data-testid="phone-price">
+        {formatPrice(phone.basePrice)}
+      </span>
     </div>
   </Link>
 );

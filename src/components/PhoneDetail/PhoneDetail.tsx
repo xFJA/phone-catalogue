@@ -52,7 +52,7 @@ const PhoneDetail: React.FC<PhoneDetailProps> = ({
   };
 
   return (
-    <main className={styles['phone-detail']}>
+    <main className={styles['phone-detail']} data-testid="phone-detail">
       <div className={styles['phone-detail__product-info-container']}>
         <div className={styles['phone-detail__image-container']}>
           <Image
@@ -71,19 +71,28 @@ const PhoneDetail: React.FC<PhoneDetailProps> = ({
             </span>
           </div>
 
-          <StorageButtonGroup
-            capacities={storageOptions.map((option) => option.capacity)}
-            selected={storage?.capacity}
-            onSelect={handleSelectStorage}
-          />
+          <div data-testid="storage-options">
+            <StorageButtonGroup
+              capacities={storageOptions.map((option) => option.capacity)}
+              selected={storage?.capacity}
+              onSelect={handleSelectStorage}
+            />
+          </div>
 
-          <ColorButtonGroup
-            colors={colorOptions}
-            selected={color?.name}
-            onSelect={handleSelectColor}
-          />
+          <div data-testid="color-options">
+            <ColorButtonGroup
+              colors={colorOptions}
+              selected={color?.name}
+              onSelect={handleSelectColor}
+            />
+          </div>
 
-          <Button fullwidth disabled={!storage || !color} onClick={() => handleAddToCart()}>
+          <Button
+            fullwidth
+            disabled={!storage || !color}
+            onClick={() => handleAddToCart()}
+            data-testid="add-to-cart-button"
+          >
             Add
           </Button>
         </div>

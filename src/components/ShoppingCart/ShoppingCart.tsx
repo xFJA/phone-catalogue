@@ -10,7 +10,12 @@ const ShoppingCart: React.FC = () => {
   const { totalItems } = useCart();
 
   return (
-    <Link href="/cart" aria-label="Shopping cart" className={styles['shopping-cart']}>
+    <Link
+      href="/cart"
+      aria-label="Shopping cart"
+      className={styles['shopping-cart']}
+      data-testid="cart-icon"
+    >
       <Image
         src="/assets/svg/shopping-cart.svg"
         alt="Shopping cart"
@@ -18,7 +23,9 @@ const ShoppingCart: React.FC = () => {
         height={18}
         priority
       />
-      <span className={styles['shopping-cart__count']}>{totalItems}</span>
+      <span className={styles['shopping-cart__count']} data-testid="cart-count">
+        {totalItems}
+      </span>
     </Link>
   );
 };

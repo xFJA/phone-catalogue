@@ -29,7 +29,7 @@ export default function CartPage() {
         ) : (
           <ul className={styles['cart-page__items-list']}>
             {items.map((item) => (
-              <li key={item.id} className={styles['cart-page__item']}>
+              <li key={item.id} className={styles['cart-page__item']} data-testid="cart-item">
                 <div className={styles['cart-page__image-container']}>
                   <Image
                     src={item.color.imageUrl}
@@ -51,6 +51,7 @@ export default function CartPage() {
                     className={styles['cart-page__remove-button']}
                     onClick={() => removeItem(item.id)}
                     aria-label={`Remove ${item.name} from cart`}
+                    data-testid="remove-button"
                   >
                     Remove
                   </button>
@@ -71,7 +72,9 @@ export default function CartPage() {
         <div className={styles['cart-page__checkout']}>
           <div className={styles['cart-page__total']}>
             <span>TOTAL</span>
-            <span className={styles['cart-page__total-amount']}>{formatPrice(totalPrice)}</span>
+            <span className={styles['cart-page__total-amount']} data-testid="total-price">
+              {formatPrice(totalPrice)}
+            </span>
           </div>
           <Button width={260}>CHECKOUT</Button>
         </div>

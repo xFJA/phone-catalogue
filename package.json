@@ -14,7 +14,11 @@
     "prepare": "husky",
     "test": "jest --config jest.config.mjs",
     "test:watch": "jest --config jest.config.mjs --watch",
-    "test:coverage": "jest --config jest.config.mjs --coverage"
+    "test:coverage": "jest --config jest.config.mjs --coverage",
+    "cypress": "cypress open",
+    "cypress:headless": "cypress run",
+    "test:e2e": "start-server-and-test dev 3000 cypress",
+    "test:e2e:headless": "start-server-and-test dev 3000 cypress:headless"
   },
   "keywords": [],
   "engines": {
@@ -46,6 +50,7 @@
     "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^8.34.0",
     "@typescript-eslint/parser": "^8.34.0",
+    "cypress": "^14.5.0",
     "eslint": "^9.29.0",
     "eslint-config-next": "^15.3.3",
     "eslint-config-prettier": "^10.1.5",
@@ -59,6 +64,7 @@
     "msw": "^2.10.2",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.5.3",
+    "start-server-and-test": "^2.0.12",
     "stylelint": "^16.20.0",
     "stylelint-config-standard-scss": "^15.0.1",
     "ts-jest": "^29.4.0"
