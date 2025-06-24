@@ -139,3 +139,19 @@ Ready to be deployed on **Vercel**:
 ## Demo
 
 Live demo: <https://phone-catalogue.vercel.app/phones>
+
+## Limitations/Issues
+
+- The API provided returns a list of phones where the images have different aspect ratios. Also, some of them have inner padding, etc so it's difficult to make pixel perfect and break some views. The only solution is to preprocessing the images if I would have control in the BE (resize, crop, etc) but I consider is totally out of scope
+- The designs and use cases to add phones are incongruous as it allows to buy more than 1 unit from the same phone but later in the design in the cart only show 1 unit to be removed... I left a hybrid approach due to lack of time
+
+## TODO
+
+Due to lack of time, I couldn't finish these points:
+
+- Improve responsiveness for mobile and table devices
+- Increase UT and UI tests
+- Improve and expand accesibility
+- Add some animations from designs
+- Add pipeline for CI/CD
+- Add Dockerfile
